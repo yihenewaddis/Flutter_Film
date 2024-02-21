@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:netflix_flutter/view/On_Boarding/page1.dart';
 import 'package:netflix_flutter/view/On_Boarding/page2.dart';
 import 'package:netflix_flutter/view/On_Boarding/page3.dart';
@@ -20,12 +21,15 @@ class _WellComeScreenState extends State<WellComeScreen> {
     return Scaffold(
       body: Stack(
         children: [
+          
           PageView(
             controller: controller,
             onPageChanged: (index){
               setState(() {
                 if(index==2){
                   isLastPage = true;
+                }else{
+                  isLastPage = false; 
                 }
               });
             },
@@ -37,13 +41,65 @@ class _WellComeScreenState extends State<WellComeScreen> {
           ),
           Container(
             alignment: Alignment(0,0.8),
-            child: SmoothPageIndicator(
-                  controller: controller,
-                  count: 3,
-                  effect: const WormEffect(
-                  dotColor: Colors.white,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                TextButton(
+                  onPressed: (){
+                    controller.previousPage(duration: const Duration(milliseconds: 700), curve: Curves.bounceOut);
+                  }, 
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(Colors.red)),
+                  child:const  Text('  Previous  ',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold
+                  ),),
                   ),
-                ), )
+
+                SmoothPageIndicator(
+                      controller: controller,
+                      count: 3,
+                      effect: const WormEffect(
+                      dotColor: Colors.white,
+                      activeDotColor: Colors.red
+                      ),
+                    ),
+                
+                if (!isLastPage)
+                TextButton(
+                  onPressed: (){
+                    controller.nextPage(duration: const Duration(milliseconds: 700), curve: Curves.bounceOut);
+                  },
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(Colors.red)
+                  ), 
+                  child: const Text('   Next   ',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold
+                  ),),
+                  ),
+
+                  if(isLastPage)
+                TextButton(
+                  onPressed: (){
+                    Get.toNamed('/signIn');
+                  },
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(Colors.red)
+                  ), 
+                  child: const Text('   Done   ',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold
+                  ),),
+                  ),
+              ],
+            ), )
         ],
       ),
     );
