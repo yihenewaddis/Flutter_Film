@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:netflix_flutter/view/Authentication/SignIn.dart';
+import 'package:netflix_flutter/view/Authentication/Signup.dart';
 import 'package:netflix_flutter/view/On_Boarding/wellcome.dart';
 import 'package:netflix_flutter/view/OtherPage/homepage/Home.dart';
 void main() {
@@ -36,12 +37,12 @@ class _MyAppState extends State<MyApp> {
 
     else{
       return GetMaterialApp(
-        initialRoute: '/signIn',
+        initialRoute: '/onboardingScreen',
         debugShowCheckedModeBanner: false,
         getPages: [
           GetPage(name: '/onboardingScreen', page: ()=>WellComeScreen()),
-          GetPage(name: '/signIn', page: ()=>SignIn(),transition: Transition.downToUp,transitionDuration:const Duration(milliseconds: 300)),
-          GetPage(name: '/signUp', page: ()=>SignIn(),transition: Transition.downToUp),
+          GetPage(name: '/signIn', page: ()=>SignIn(),transition: Transition.downToUp,transitionDuration:const Duration(milliseconds: 400)),
+          GetPage(name: '/signUp', page: ()=>signUp(),transition: Transition.rightToLeft),
           ],
       );}
   }
