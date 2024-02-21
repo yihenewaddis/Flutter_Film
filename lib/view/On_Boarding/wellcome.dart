@@ -40,7 +40,7 @@ class _WellComeScreenState extends State<WellComeScreen> {
             ],
           ),
           Container(
-            alignment: Alignment(0,0.8),
+            alignment: Alignment(0,0.9),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -49,7 +49,7 @@ class _WellComeScreenState extends State<WellComeScreen> {
                     controller.previousPage(duration: const Duration(milliseconds: 700), curve: Curves.bounceOut);
                   }, 
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(Colors.red)),
+                    backgroundColor: MaterialStateProperty.all<Color>(const Color.fromARGB(255, 248, 119, 6))),
                   child:const  Text('  Previous  ',
                   style: TextStyle(
                     color: Colors.white,
@@ -63,17 +63,17 @@ class _WellComeScreenState extends State<WellComeScreen> {
                       count: 3,
                       effect: const WormEffect(
                       dotColor: Colors.white,
-                      activeDotColor: Colors.red
+                      activeDotColor: Color.fromARGB(255, 248, 119, 6)
                       ),
                     ),
                 
                 if (!isLastPage)
                 TextButton(
                   onPressed: (){
-                    controller.nextPage(duration: const Duration(milliseconds: 700), curve: Curves.bounceOut);
+                    controller.nextPage(duration: const Duration(milliseconds: 400),curve: Curves.linear);
                   },
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(Colors.red)
+                    backgroundColor: MaterialStateProperty.all<Color>(const Color.fromARGB(255, 248, 119, 6))
                   ), 
                   child: const Text('   Next   ',
                   style: TextStyle(
@@ -89,7 +89,7 @@ class _WellComeScreenState extends State<WellComeScreen> {
                     Get.toNamed('/signIn');
                   },
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(Colors.red)
+                    backgroundColor: MaterialStateProperty.all<Color>(const Color.fromARGB(255, 248, 119, 6))
                   ), 
                   child: const Text('   Done   ',
                   style: TextStyle(

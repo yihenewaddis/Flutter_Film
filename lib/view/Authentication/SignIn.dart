@@ -27,6 +27,10 @@ void setPassword(value){
   });
 }
 
+void LogIn(){
+  print('LogIn Clicked');
+}
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -39,7 +43,7 @@ void setPassword(value){
                 height: 500,
                   decoration:const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('lib/assets/login.jpg'),
+                      image: AssetImage('lib/assets/signin1.jpg'),
                       fit: BoxFit.cover,
                       )
                   ),
@@ -69,15 +73,15 @@ void setPassword(value){
 
                   const SizedBox(height: 20),
 
-                  const  Column(
+                    Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [ 
                       //from register component
-                      RegisterButton(),
-                      SizedBox(height: 10),
+                      RegisterButton(logIn:LogIn,buttonText:'LOG IN'),
+                      const SizedBox(height: 10),
                       //frome forget password component
-                      ForgetPassword(),
-                      SizedBox(height: 30,),
+                      const ForgetPassword(),
+                      const SizedBox(height: 30,),
                       //from dont have account
                       DontHaveAcount()
                         ])

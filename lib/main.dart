@@ -8,7 +8,7 @@ import 'package:netflix_flutter/view/OtherPage/homepage/Home.dart';
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
    const SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
+      statusBarColor: Colors.black,
       systemNavigationBarColor: Colors.transparent,
     )
   );
