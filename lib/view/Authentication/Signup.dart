@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:netflix_flutter/view/Authentication/component/ForgetPassword.dart';
 import 'package:netflix_flutter/view/Authentication/component/TextFild.dart';
 import 'package:netflix_flutter/view/Authentication/component/donthaveaccount.dart';
@@ -28,7 +29,7 @@ void setPassword(value){
 }
 
 void SignUp(){
-  print('SignUp Clicked');
+  Get.offAndToNamed('/home');
 }
 
   @override

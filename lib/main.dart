@@ -23,7 +23,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  bool is_autenticated = false;
+  bool is_autenticated = true;
   @override
   Widget build(BuildContext context) {
       if(is_autenticated){
@@ -31,7 +31,10 @@ class _MyAppState extends State<MyApp> {
         debugShowCheckedModeBanner: false,
         initialRoute: '/home',
         getPages: [
-          GetPage(name: '/home', page:()=> Home()),
+          GetPage(name: '/home', page:()=> Home(),transition: Transition.downToUp,transitionDuration:const Duration(milliseconds: 300)),
+          GetPage(name: '/onboardingScreen', page: ()=>WellComeScreen()),
+          GetPage(name: '/signIn', page: ()=>SignIn(),transition: Transition.downToUp,transitionDuration:const Duration(milliseconds: 400)),
+          GetPage(name: '/signUp', page: ()=>signUp(),transition: Transition.rightToLeft),
           ],
       );}
 
