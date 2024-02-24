@@ -3,9 +3,13 @@ import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 class FeatchFilms extends GetxController{
 
+var pageChange = RxBool(false);
+void changePage(){
+  pageChange.value = !pageChange.value; 
+}
+
 Future featchfilmdata(String url) async{
 
-  //to make loading screen
 
   //initialize the variable to store featched response
   http.Response response;

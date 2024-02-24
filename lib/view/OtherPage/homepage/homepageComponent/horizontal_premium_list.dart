@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:netflix_flutter/view/OtherPage/homepage/homepageComponent/spiner.dart';
 
 class Horizontal_premium_list extends StatelessWidget {
   
@@ -8,7 +9,7 @@ class Horizontal_premium_list extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 272,
+      height: 300,
       
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -17,8 +18,8 @@ class Horizontal_premium_list extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.only(right: 10,left: 5,top: 20),
             child: Container(
-              height: 270,
-              width: 180,
+              height: 290,
+              width: 195,
               decoration: BoxDecoration(
                 color:const Color.fromARGB(255, 20, 32, 74),
                 borderRadius: BorderRadius.circular(10.0)
@@ -29,13 +30,15 @@ class Horizontal_premium_list extends StatelessWidget {
                     children: [
 
                     SizedBox(
-                      width: 175,
-                      height: 140,
+                      width: 190,
+                      height: 150,
                       child:  ClipRRect(
                         borderRadius:const BorderRadius.all(Radius.circular(10)),
                       child: Image.network(
                           'https://image.tmdb.org/t/p/original/${premium_list[index].containsKey('backdrop_path')?premium_list[index]['backdrop_path']:premium_list[index]['poster_path']}',
                           fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) {
+                            return const Spiner();},
                         ),
                       ),
                     ),
@@ -60,7 +63,7 @@ class Horizontal_premium_list extends StatelessWidget {
                   Column(
                     children: [
                     Text(premium_list[index]['original_title'],overflow: TextOverflow.ellipsis,
-    maxLines: 1,style:const TextStyle(color: Color.fromARGB(255, 241, 143, 7)),),
+                    maxLines: 1,style:const TextStyle(color: Color.fromARGB(255, 241, 143, 7)),),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
@@ -72,8 +75,8 @@ class Horizontal_premium_list extends StatelessWidget {
                           ),
                           Column(
                           children: [
-                            Text(premium_list[index]['release_date'],style:const TextStyle(color: Colors.white),),
-                            Text(premium_list[index]['vote_count'].toString(),style: const TextStyle(color: Colors.white),)
+                            Text(premium_list[index]['release_date'],style:const TextStyle(color: Color.fromARGB(255, 241, 143, 7)),),
+                            Text(premium_list[index]['vote_count'].toString(),style: const TextStyle(color: Color.fromARGB(255, 241, 143, 7)),)
                           ],
                           ),
                         ],

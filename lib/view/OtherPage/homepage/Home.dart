@@ -80,8 +80,8 @@ class _HomeState extends State<Home> {
                 onPressed: () { _scaffoldKey.currentState?.openDrawer();},),
               )],),
 
-        body:  ButtomNavBarPage[ButtomNavBarIndex],)
-      ),
+        body:  ButtomNavBarPage[ButtomNavBarIndex],
+      ))
     );
   }
 }
