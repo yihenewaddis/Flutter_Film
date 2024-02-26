@@ -5,6 +5,7 @@ import 'package:netflix_flutter/view/Authentication/SignIn.dart';
 import 'package:netflix_flutter/view/Authentication/Signup.dart';
 import 'package:netflix_flutter/view/On_Boarding/wellcome.dart';
 import 'package:netflix_flutter/view/OtherPage/homepage/Home.dart';
+import 'package:netflix_flutter/view/OtherPage/homepage/filmdetail.dart';
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
    const SystemUiOverlayStyle(
@@ -29,12 +30,13 @@ class _MyAppState extends State<MyApp> {
       if(is_autenticated){
       return GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/home',
+        initialRoute: '/onboardingScreen',
         getPages: [
           GetPage(name: '/home', page:()=> Home(),transition: Transition.downToUp,transitionDuration:const Duration(milliseconds: 300)),
           GetPage(name: '/onboardingScreen', page: ()=>WellComeScreen()),
           GetPage(name: '/signIn', page: ()=>SignIn(),transition: Transition.downToUp,transitionDuration:const Duration(milliseconds: 400)),
           GetPage(name: '/signUp', page: ()=>signUp(),transition: Transition.rightToLeft),
+          GetPage(name: '/detail', page: ()=>filmdetail(),transition: Transition.downToUp,transitionDuration:const Duration(milliseconds: 400)),
           ],
       );}
 
